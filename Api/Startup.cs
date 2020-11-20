@@ -48,6 +48,9 @@ namespace sites4u
 
             app.UseRouting();
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 
             app.UseAuthorization();
@@ -55,6 +58,7 @@ namespace sites4u
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }
