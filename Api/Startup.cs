@@ -46,12 +46,11 @@ namespace sites4u
 
             app.UseRouting();
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
-
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://uxdeve82-001-site10.itempurl.com/"));
 
             app.UseAuthorization();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

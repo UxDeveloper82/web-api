@@ -53,6 +53,7 @@ namespace sites4u.Controllers
         public async Task<ActionResult<UserDto>> login(LoginDto loginDto)
         {
             var user = await _context.Users
+                .Include(p=>p.Photos)
                 .SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
 
             if (user == null)
@@ -71,7 +72,8 @@ namespace sites4u.Controllers
             return new UserDto
             {
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user),
+                PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url
             };
         }
 
