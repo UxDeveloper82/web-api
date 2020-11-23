@@ -10,8 +10,8 @@ using sites4u.Data;
 namespace sites4u.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201122034644_UserModel")]
-    partial class UserModel
+    [Migration("20201123001849_InitialModel")]
+    partial class InitialModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -85,8 +85,8 @@ namespace sites4u.Data.Migrations
                     b.Property<bool>("IsMain")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PublicId")
-                        .HasColumnType("int");
+                    b.Property<string>("PublicId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");

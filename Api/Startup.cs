@@ -49,6 +49,7 @@ namespace sites4u
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://uxdeve82-001-site10.itempurl.com/"));
 
             app.UseAuthorization();
+            app.UseAuthentication();
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
